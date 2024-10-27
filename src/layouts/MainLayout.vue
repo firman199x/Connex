@@ -22,6 +22,7 @@ export default defineComponent({
 <style>
 html, body, #q-app {
   height: 100%;
+  font: italic 1rem small-caps bold;
 }
 
 .wrapper {

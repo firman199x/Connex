@@ -51,15 +51,17 @@ export default {
 }
 
 .main-body-side {
-  max-width: 250px;
+  max-width: 350px;
   background-color: #282828;
 }
 
 .main-body-button-area {
   height: 3rem;
-  background-color: #444;
+  background-color: #333333;
   border-radius: 8px;
   margin: 8px 0px;
+
+  display: flex;
 }
 
 </style>

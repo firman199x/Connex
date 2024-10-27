@@ -5,9 +5,9 @@
     <q-input outlined v-model="text" label="wss:\\ip:port" style="margin-left:
       10px" />
     <q-btn square color="secondary" icon="save" style="margin-left:
-      10px; height: 3rem; border-radius:5px;"/>
+      10px; height: 3rem; border-radius:5px;" />
 
-      <q-btn outline label="Connected" style="color: #008700; height:3rem;
+    <q-btn color="secondary" label="Connected" style="height:3rem;
         margin-left: 5rem; border-radius:5px;" />
   </div>
 </template>
