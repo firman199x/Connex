@@ -1,8 +1,8 @@
 <template>
   <div>
-    <q-select filled v-model="model" use-input use-chips input-debounce="0" @new-value="createValue"
-      :options="filterOptions" @filter="filterFn" style="width: 250px" />
-    <q-input outlined v-model="text" label="wss:\\ip:port" style="margin-left:
+    <q-select filled v-model="model" use-input input-debounce="0" @new-value="createValue"
+      label="Server" :options="filterOptions" @filter="filterFn" style="width: 250px" />
+    <q-input outlined v-model="ipPort" label="wss:\\ip:port" style="margin-left:
       10px" />
     <q-btn square color="secondary" icon="save" style="margin-left:
       10px; height: 3rem; border-radius:5px;" />
@@ -16,16 +16,19 @@
 import { ref } from 'vue'
 
 const stringOptions = [
-  'xProjectServer', 'xFileServer', 'xCommServer', 'xProxy', 'xAlarmServer'
+  'xProjectServer', 'xFileServer', 'xCommServer', 'xProxy', 'xAlarmServer',
+  'SafeGeneral', 'SafeAlarm', 'SafeComm', 'SafeFile', 'SafeProject',
 ]
 
 export default {
   setup() {
-    const model = ref(null)
+    const model = ref('SafeProject')
+    const ipPort = ref('localhost:65250')
     const filterOptions = ref(stringOptions)
 
     return {
       model,
+      ipPort,
       filterOptions,
 
       createValue(val, done) {
@@ -84,10 +87,10 @@ export default {
 div {
   background-color: #909090;
   color: white;
-  padding: 1rem;
+  margin: 0px 5px;
+  padding: 0.2rem 0 1rem;
   text-align: center;
-  border-radius: 15px;
-  height: 100px;
+  height: 65px;
 
   display: flex;
 }

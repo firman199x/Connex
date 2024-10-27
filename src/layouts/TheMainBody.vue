@@ -32,15 +32,14 @@ export default {
   background-color: #333;
   color: white;
   text-align: center;
-  margin: 5px;
-  border-radius: 5px;
+  margin: 0px 5px 5px;
   flex-grow: 1;
 }
 
 .main-body-sub-section {
   background-color: #333;
   color: white;
-  padding: 1rem;
+  padding: 0rem 1rem;
   text-align: center;
   border-radius: 5px;
   margin: 5px;
@@ -50,16 +49,20 @@ export default {
   flex-direction: column;
 }
 
-.main-body-side {
-  max-width: 350px;
-  background-color: #282828;
-}
-
 .main-body-button-area {
   height: 3rem;
   background-color: #333333;
   border-radius: 8px;
   margin: 8px 0px;
+
+  display: flex;
+}
+
+.main-body-badge-area {
+  height: 2.4rem;
+  background-color: #333333;
+  border-radius: 8px;
+  margin: 0px 0px 0px;
 
   display: flex;
 }

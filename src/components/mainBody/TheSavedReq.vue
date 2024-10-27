@@ -1,19 +1,12 @@
 <template>
   <div class="q-pa-md q-gutter-sm main-body-sub-section main-body-side"
-    style="background-color: #b6b6b6; overflow: hidden;">
+    style="background-color: #ffffff; overflow: hidden; max-width:350px">
     <q-input ref="filterRef" filled v-model="filter" label="Filter">
       <template v-slot:append>
         <q-icon v-if="filter !== ''" name="clear" class="cursor-pointer" @click="resetFilter" />
       </template>
     </q-input>
-
-    <q-tree
-      :nodes="simple"
-      node-key="label"
-      :filter="filter"
-      dense
-      default-expand-all
-    />
+    <q-tree :nodes="simple" node-key="label" :filter="filter" dense default-expand-all style="font-size: 0.8rem;" />
   </div>
 </template>
 
@@ -21,7 +14,7 @@
 import { ref } from 'vue'
 
 export default {
-  setup () {
+  setup() {
     const filter = ref('')
     const filterRef = ref(null)
 
@@ -31,35 +24,40 @@ export default {
 
       simple: [
         {
-          label: 'WebSocket Requests',
+          label: 'XTAGLIB',
           children: [
-            {
-              label: 'XTAGLIB',
-              children: [
-                { label: 'OpQueryTag' },
-                { label: 'OpSetTagNotification' }
-              ]
-            },
-            {
-              label: 'TAGSAFE',
-              disabled: false,
-              children: [
-                { label: 'OpSafeQueryTag' },
-                { label: 'OpSafeSetTagNotification' }
-              ]
-            },
-            {
-              label: 'RTDBWRAPPER',
-              children: [
-                { label: 'OpSubAlarm' },
-                { label: 'OpNotifyAlarm' }
-              ]
-            }
+            { label: 'OpQueryTag' },
+            { label: 'OpSetTagNotification' }
+          ]
+        },
+        {
+          label: 'TAGSAFE',
+          disabled: false,
+          children: [
+            { label: 'OpQueryTag' },
+            { label: 'OpSetTagNotification' }
+          ]
+        },
+        {
+          label: 'XALARMAPI',
+          children: [
+            { label: 'OpSubAlarm' },
+            { label: 'OpNotifyAlarm' }
+          ]
+        },
+        {
+          label: 'XRTDBWRAPPER',
+          children: [
+            { label: 'OpQuery' },
+            { label: 'OpUpdate' },
+            { label: 'OpSetNotification' },
+            { label: 'OpCancelNotification' },
+            { label: 'OpDeleteRow' }
           ]
         }
       ],
 
-      resetFilter () {
+      resetFilter() {
         filter.value = ''
         filterRef.value.focus()
       }
@@ -67,4 +65,3 @@ export default {
   }
 }
 </script>
-
