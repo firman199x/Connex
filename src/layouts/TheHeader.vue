@@ -1,14 +1,10 @@
 <template>
   <div>
-    <q-select filled v-model="model" use-input input-debounce="0" @new-value="createValue"
-      label="Server" :options="filterOptions" @filter="filterFn" style="width: 250px" />
-    <q-input outlined v-model="ipPort" label="wss:\\ip:port" style="margin-left:
-      10px" />
-    <q-btn square color="secondary" icon="save" style="margin-left:
-      10px; height: 3rem; border-radius:5px;" />
-
-    <q-btn color="secondary" label="Connected" style="height:3rem;
-        margin-left: 5rem; border-radius:5px;" />
+    <q-select bg-color="secondary" filled v-model="model" use-input input-debounce="0" @new-value="createValue" label="Server" :options="filterOptions" @filter="filterFn" style="width: 250px" />
+    <q-input bg-color="secondary" outlined v-model="ipPort" label="wss:\\ip:port" style="margin-left: 10px" />
+    <q-btn square outline color="secondary" icon="save" style="margin-left: 10px; height: 3rem; border-radius:5px;" />
+    <q-btn color="lime" outline label="Connected" style="height:3rem;
+      width: 15rem; margin-left: 5rem; border-radius:5px;" self-end />
   </div>
 </template>
 
@@ -85,7 +81,7 @@ export default {
 </script>
 <style scoped>
 div {
-  background-color: #909090;
+  background-color: #333;
   color: white;
   margin: 0px 5px;
   padding: 0.2rem 0 1rem;
