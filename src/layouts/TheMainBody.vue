@@ -8,24 +8,23 @@
 </template>
 
 <script>
-import TheSavedReq from '../components/mainBody/TheSavedReq.vue'
-import TheReqEditor from '../components/mainBody/TheReqEditor.vue'
-import TheRespViewer from '../components/mainBody/TheRespViewer.vue'
-import TheHistory from '../components/mainBody/TheHistory.vue'
+import TheSavedReq from "../components/mainBody/TheSavedReq.vue";
+import TheReqEditor from "../components/mainBody/TheReqEditor.vue";
+import TheRespViewer from "../components/mainBody/TheRespViewer.vue";
+import TheHistory from "../components/mainBody/TheHistory.vue";
 
 export default {
-  name: 'TheMainBody',
+  name: "TheMainBody",
   components: {
     TheSavedReq,
     TheReqEditor,
     TheRespViewer,
-    TheHistory
-  }
+    TheHistory,
+  },
 };
 </script>
 
 <style>
-
 .main-body-body_wrapper {
   display: flex;
   justify-content: center;
@@ -66,6 +65,4 @@ export default {
 
   display: flex;
 }
-
 </style>
-

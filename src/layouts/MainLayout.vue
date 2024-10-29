@@ -6,21 +6,23 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import TheHeader from './TheHeader.vue'
-import TheMainBody from './TheMainBody.vue'
+import { defineComponent } from "vue";
+import TheHeader from "./TheHeader.vue";
+import TheMainBody from "./TheMainBody.vue";
 
 export default defineComponent({
-  name: 'MainLayout',
+  name: "MainLayout",
   components: {
     TheHeader,
-    TheMainBody
-  }
-})
+    TheMainBody,
+  },
+});
 </script>
 
 <style>
-html, body, #q-app {
+html,
+body,
+#q-app {
   height: 100%;
   font: italic 1rem small-caps bold;
   background-color: #333333;
@@ -33,4 +35,3 @@ html, body, #q-app {
   height: 100%;
 }
 </style>
-

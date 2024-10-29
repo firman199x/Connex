@@ -1,26 +1,62 @@
 <template>
   <div>
-    <q-select bg-color="secondary" filled v-model="model" use-input input-debounce="0" @new-value="createValue" label="Server" :options="filterOptions" @filter="filterFn" style="width: 250px" />
-    <q-input bg-color="secondary" outlined v-model="ipPort" label="wss:\\ip:port" style="margin-left: 10px" />
-    <q-btn square outline color="secondary" icon="save" style="margin-left: 10px; height: 3rem; border-radius:5px;" />
-    <q-btn color="lime" outline label="Connected" style="height:3rem;
-      width: 15rem; margin-left: 5rem; border-radius:5px;" self-end />
+    <q-select
+      bg-color="secondary"
+      filled
+      v-model="model"
+      use-input
+      input-debounce="0"
+      @new-value="createValue"
+      label="Server"
+      :options="filterOptions"
+      @filter="filterFn"
+      style="width: 250px"
+    />
+    <q-input
+      bg-color="secondary"
+      outlined
+      v-model="ipPort"
+      label="wss:\\ip:port"
+      style="margin-left: 10px"
+    />
+    <q-btn
+      square
+      outline
+      color="secondary"
+      icon="save"
+      style="margin-left: 10px; height: 3rem; border-radius: 5px"
+    />
+    <q-btn
+      color="lime"
+      outline
+      label="Connected"
+      style="height: 3rem; width: 15rem; margin-left: 5rem; border-radius: 5px"
+      self-end
+    />
   </div>
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from "vue";
 
 const stringOptions = [
-  'xProjectServer', 'xFileServer', 'xCommServer', 'xProxy', 'xAlarmServer',
-  'SafeGeneral', 'SafeAlarm', 'SafeComm', 'SafeFile', 'SafeProject',
-]
+  "xProjectServer",
+  "xFileServer",
+  "xCommServer",
+  "xProxy",
+  "xAlarmServer",
+  "SafeGeneral",
+  "SafeAlarm",
+  "SafeComm",
+  "SafeFile",
+  "SafeProject",
+];
 
 export default {
   setup() {
-    const model = ref('SafeProject')
-    const ipPort = ref('localhost:65250')
-    const filterOptions = ref(stringOptions)
+    const model = ref("SafeProject");
+    const ipPort = ref("localhost:65250");
+    const filterOptions = ref(stringOptions);
 
     return {
       model,
@@ -42,42 +78,41 @@ export default {
         // and only resets the input textbox to empty string
 
         if (val.length > 0) {
-          const modelValue = (model.value || []).slice()
+          const modelValue = (model.value || []).slice();
 
           val
             .split(/[,;|]+/)
-            .map(v => v.trim())
-            .filter(v => v.length > 0)
-            .forEach(v => {
+            .map((v) => v.trim())
+            .filter((v) => v.length > 0)
+            .forEach((v) => {
               if (stringOptions.includes(v) === false) {
-                stringOptions.push(v)
+                stringOptions.push(v);
               }
               if (modelValue.includes(v) === false) {
-                modelValue.push(v)
+                modelValue.push(v);
               }
-            })
+            });
 
-          done(null)
-          model.value = modelValue
+          done(null);
+          model.value = modelValue;
         }
       },
 
       filterFn(val, update) {
         update(() => {
-          if (val === '') {
-            filterOptions.value = stringOptions
-          }
-          else {
-            const needle = val.toLowerCase()
+          if (val === "") {
+            filterOptions.value = stringOptions;
+          } else {
+            const needle = val.toLowerCase();
             filterOptions.value = stringOptions.filter(
-              v => v.toLowerCase().indexOf(needle) > -1
-            )
+              (v) => v.toLowerCase().indexOf(needle) > -1
+            );
           }
-        })
-      }
-    }
-  }
-}
+        });
+      },
+    };
+  },
+};
 </script>
 <style scoped>
 div {
